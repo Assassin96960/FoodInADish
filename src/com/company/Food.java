@@ -1,13 +1,18 @@
 package com.company;
 
 public class Food {
-    String name;
-    double kg;
+    private String name;
+    private double kg;
 
 
     public Food(String name, double kg) {
         this.name = name;
         this.kg = kg;
+    }
+
+    public Food() {
+        this.name = "";
+        this.kg = 0;
     }
 
     public String getName() {

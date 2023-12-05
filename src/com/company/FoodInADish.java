@@ -1,8 +1,15 @@
 package com.company;
 
+import javax.swing.*;
+
 public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADish>{
-    T food;
-    String DishColor;
+    private T food;
+    String dishColor;
+
+    public FoodInADish() {
+        this.food= (T) new Object();
+        dishColor=
+    }
 
     @Override
     public int compareTo(FoodInADish o)
@@ -42,15 +49,40 @@ public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADis
     }
 
     @Override
-    public void draw() {
+    public JPanel draw() {
+         ImageIcon foodIcon= new ImageIcon("/resources"+ ((Food)food).getName()+".png");
+         ImageIcon dishIcon= new ImageIcon("/resources"+ dishColor +".png");
+         JPanel p=new JPanel();
+         JLabel fl= new JLabel(foodIcon);
+         fl.setBounds(0, 0, foodIcon.getIconWidth(), foodIcon.getIconHeight());
 
+         p.add(fl);
+
+         JLabel dl=new JLabel(dishIcon);
+         dl.setBounds(0, 0, dishIcon.getIconWidth(), dishIcon.getIconHeight());
+         p.add(dl);
+         p.setBounds(getxCoord(), getyCoord(), Math.max(foodIcon.getIconWidth(), dishIcon.getIconWidth()), foodIcon.getIconHeight()+3+dishIcon.getIconHeight());
+         return p;
     }
 
     public T getFood() {
         return food;
     }
 
+    public FoodInADish(T food, String dishColor) {
+        this.food = food;
+        this.dishColor = dishColor;
+    }
+
+    public void setFood(T food) {
+        this.food = food;
+    }
+
+    public void setDishColor(String dishColor) {
+        this.dishColor = dishColor;
+    }
+
     public String getDishColor() {
-        return DishColor;
+        return dishColor;
     }
 }

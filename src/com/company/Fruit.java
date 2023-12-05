@@ -8,6 +8,10 @@ public class Fruit extends Food{
         this.isReadyToEat = isReadyToEat;
     }
 
+    public Fruit() {
+        super();
+    }
+
     public boolean isReadyToEat() {
         return isReadyToEat;
     }

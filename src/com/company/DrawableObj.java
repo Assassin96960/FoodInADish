@@ -1,11 +1,13 @@
 package com.company;
 
+import javax.swing.*;
+
 public abstract class DrawableObj {
     int xCoord;
     int  yCoord;
     int width;
     int height;
-    public abstract void draw();
+    public abstract JPanel draw();
 
     public int getxCoord() {
         return xCoord;
@@ -38,4 +40,5 @@ public abstract class DrawableObj {
     public void setHeight(int height) {
         this.height = height;
     }
+
 }
