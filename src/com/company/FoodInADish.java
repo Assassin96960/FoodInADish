@@ -8,7 +8,7 @@ public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADis
 
     public FoodInADish() {
         this.food= (T) new Object();
-        dishColor=
+        dishColor="";
     }
 
     @Override
@@ -50,8 +50,8 @@ public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADis
 
     @Override
     public JPanel draw() {
-         ImageIcon foodIcon= new ImageIcon("/resources"+ ((Food)food).getName()+".png");
-         ImageIcon dishIcon= new ImageIcon("/resources"+ dishColor +".png");
+         ImageIcon foodIcon= new ImageIcon("resources/"+ ((Food)food).getName()+".png");
+         ImageIcon dishIcon= new ImageIcon("resources/"+ dishColor +".png");
          JPanel p=new JPanel();
          JLabel fl= new JLabel(foodIcon);
          fl.setBounds(0, 0, foodIcon.getIconWidth(), foodIcon.getIconHeight());
@@ -59,7 +59,7 @@ public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADis
          p.add(fl);
 
          JLabel dl=new JLabel(dishIcon);
-         dl.setBounds(0, 0, dishIcon.getIconWidth(), dishIcon.getIconHeight());
+         dl.setBounds(0, foodIcon.getIconHeight()+5, dishIcon.getIconWidth(), dishIcon.getIconHeight());
          p.add(dl);
          p.setBounds(getxCoord(), getyCoord(), Math.max(foodIcon.getIconWidth(), dishIcon.getIconWidth()), foodIcon.getIconHeight()+3+dishIcon.getIconHeight());
          return p;
